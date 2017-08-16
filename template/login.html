@@ -1,0 +1,68 @@
+<section class="hero is-fullheight is-dark is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column is-4 is-offset-4">
+            <h1 class="title has-text-centered">Login</h1>
+            <div class="box">
+              <form novalidate="">
+                
+                <!-- email -->
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control">
+                    <input name="email" title="Email" placeholder="Enter Email"class="input" type="email">
+                  </div>
+                </div>
+                
+                <!-- pass -->
+                <div class="field">
+                  <label class="label">Password</label>
+                  <div class="control">
+                    <input name="password" title="Password" placeholder="Enter Password" class="input" type="password">
+                  </div>
+                </div>
+                
+                <hr>
+                <p class="control">
+                  <button type="submit" class="button is-primary">Login</button>
+                  <a class="button is-link">Forgot Password</a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<script type='text/javascript'>
+  $(document).ready( function() {
+    var submitButton = $('form').find('button[type=submit]').last();
+    
+    submitButton.bind('click', function(e) {
+      
+      e.preventDefault();
+      
+      // Request
+      var request = $.ajax( {
+        url: 'php/post.php',
+        type: "POST",
+        data: $('form').serialize(),
+        beforeSend: function(xhr) {
+          //xhr.setRequestHeader('Authorization', 'Bearer ' + formToken);
+        }
+      });
+
+      // Request success
+      request.done(function(result) {
+        window.location = window.location.pathname;
+      });
+
+      // Request failure
+      request.fail(function(jqXHR, textStatus) {
+      });
+    });
+  });
+</script>
+

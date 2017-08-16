@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="columns is-vcentered">
+        <div class="column is-4 is-offset-4">
+            <h1 class="title has-text-centered">Secure Page</h1>
+            <button class="button is-primary has-text-centered">Logout</button>
+        </div>
+    </div>
+</div>
+
+
+<script type='text/javascript'>
+  $(document).ready( function() {
+        
+    $('button').bind('click', function(e) {
+      
+      e.preventDefault();
+      
+      var request = $.ajax( {
+        url: 'php/logout.php',
+        type: "POST",
+        data: {},
+        beforeSend: function(xhr) {
+          //xhr.setRequestHeader('Authorization', 'Bearer ' + formToken);
+        }
+      });
+
+      // Request success
+      request.done(function(result) {
+        console.log('success');
+        window.location = window.location.pathname;
+      });
+
+      // Request failure
+      request.fail(function(jqXHR, textStatus) {
+      });
+    });
+  });
+</script>
+

@@ -1,5 +1,12 @@
 <?php
-
 // remove our login session cookie
-setcookie('authID', "", time() - 3600);
+setrawcookie(
+			'authID', // name
+ 			'', // value
+ 			time() - 3600, // expire
+ 			"/", // path
+ 			"", // domain
+ 			false, // secure
+ 			true // httponly
+    	 	);
 echo "success";

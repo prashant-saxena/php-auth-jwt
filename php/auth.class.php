@@ -1,14 +1,16 @@
 <?php
-
+require_once('jwt.php');
 class Auth
 {
 	//
 	public static function login($email, $password) {
-		// validate your email and password from database.
-		// 	If everythig is fine, set a cookie
+		// Validate your email and password from database.
+		// If everythig is fine, set a cookie
+		$payload = array('uid'=>1);
+		$jwt = create_json_web_token($payload);
 		setrawcookie(
     				'authID', // name
-    	 			'hash', // value
+    	 			$jwt, // value
     	 			0, // expire
     	 			"/", // path
     	 			"", // domain
@@ -16,6 +18,7 @@ class Auth
     	 			true // httponly
     	 			);
 
+		return $jwt;
 
 	}
 
@@ -27,10 +30,19 @@ class Auth
 			return false;
 	}
 
-
+	// remove our login session cookie
 	public static function logout()
 	{
-
-
+		// make sure all the parameters matches
+		setrawcookie(
+			'authID', // name
+ 			'', // value
+ 			time() - 3600, // expire
+ 			"/", // path
+ 			"", // domain
+ 			false, // secure
+ 			true // httponly
+    	 	);
+		return true;
 	}
 }

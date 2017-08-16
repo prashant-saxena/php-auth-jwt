@@ -5,7 +5,7 @@
           <div class="column is-4 is-offset-4">
             <h1 class="title has-text-centered">Login</h1>
             <div class="box">
-              <form novalidate="">
+              <form novalidate="" action="php/login.php" method="post">
                 
                 <!-- email -->
                 <div class="field">
@@ -46,7 +46,7 @@
       
       // Request
       var request = $.ajax( {
-        url: 'php/post.php',
+        url: 'php/login.php',
         type: "POST",
         data: $('form').serialize(),
         beforeSend: function(xhr) {

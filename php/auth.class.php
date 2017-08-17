@@ -49,7 +49,7 @@ class Auth
 
 		date_default_timezone_set('Asia/Calcutta');
 		// Time expired
-		if(date("m/d/Y H:i:s") > date('m/d/Y H:i:s', $payload['exp'])
+		if(date("m/d/Y H:i:s") > date('m/d/Y H:i:s', $payload['exp']))
 			return false;
 		
 

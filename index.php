@@ -14,8 +14,8 @@ require_once('php/auth.class.php');
     <title>Auth</title>
     
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bulma.min.css">
-    <script type='text/javascript' src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
     <body>
       <?php

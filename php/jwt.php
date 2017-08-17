@@ -21,7 +21,7 @@ function create_json_web_token($payload)
 {
     date_default_timezone_set('Asia/Calcutta');
     $payload['iat'] = time(); // Issued at: time when the token was generated
-    $payload['exp'] = time() + 20; // Expire
+    $payload['exp'] = time() + 1440; // Expire
     $payload['iss'] = $_SERVER['SERVER_NAME']; // Issuer
     //$payload['jti'] = 'some id'; // Json Token Id: an unique identifier for the token
     //$payload['nbf'] = // Not before
